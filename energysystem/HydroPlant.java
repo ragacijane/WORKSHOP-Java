@@ -2,11 +2,11 @@ package energysystem;
 
 import java.awt.Color;
 
-public class Hidroelektrana extends Proizvodjac{
+public class HydroPlant extends Producer {
 	private Thread thread;
 	private int brojVodenihPovrsi;
 	
-	public Hidroelektrana(Baterija b) {
+	public HydroPlant(Batery b) {
 		super("H", Color.BLUE, 1500, b);
 		brojVodenihPovrsi=0;
 	}
@@ -22,7 +22,7 @@ public class Hidroelektrana extends Proizvodjac{
 	protected Boolean proizvedi() {
 		if( brojVodenihPovrsi == 0)return false;
 		else {
-			baterija.dodajEnerg(brojVodenihPovrsi);
+			batery.dodajEnerg(brojVodenihPovrsi);
 			return true;
 		}
 	}

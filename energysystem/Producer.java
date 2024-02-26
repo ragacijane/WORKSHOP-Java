@@ -2,17 +2,17 @@ package energysystem;
 
 import java.awt.Color;
 
-public abstract class Proizvodjac extends Parcela implements Runnable {
+public abstract class Producer extends Parcel implements Runnable {
 	
 	protected int osnovnoVreme, ukupnoVreme;
 	protected Boolean work=false;
-	protected Baterija baterija=null;
+	protected Batery batery =null;
 	
-	public Proizvodjac(String n, Color c, int vrm,Baterija b) {
+	public Producer(String n, Color c, int vrm, Batery b) {
 		super(n, c);
 		osnovnoVreme=vrm;
 		ukupnoVreme=(int)(Math.random()*301) + vrm;
-		baterija=b;
+		batery =b;
 	}
 
 	@Override

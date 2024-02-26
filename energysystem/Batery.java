@@ -1,9 +1,9 @@
 package energysystem;
 
-public class Baterija {
+public class Batery {
 	private int trenEnerg, maxEnerg;
 	
-	public Baterija(int max) {
+	public Batery(int max) {
 		maxEnerg=max;
 		trenEnerg=max;
 	}

@@ -9,17 +9,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class EnergetskiSistem extends Frame  {
+public class EnergySystem extends Frame  {
 	private Plac plac;
-	private Baterija baterija;
-	private Button dugme=new Button("Dodaj.");
+	private Batery batery;
+	private Button button =new Button("Dodaj.");
 	
-	public EnergetskiSistem(int r,int c,int m) {
+	public EnergySystem(int r, int c, int m) {
 		super("Energetski sistem");
 		
 		plac=new Plac(r,c);
 		
-		baterija=new Baterija(m);
+		batery =new Batery(m);
 		
 		setSize(500,500);
 		
@@ -41,19 +41,19 @@ public class EnergetskiSistem extends Frame  {
 	private void populateWindow() {
 		Panel komanda=new Panel();
 		
-		dugme.addMouseListener(new MouseAdapter() {
+		button.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				plac.dodajPotrosaca(new Hidroelektrana(baterija));
+				plac.dodajPotrosaca(new HydroPlant(batery));
 			}
 		});
 		
-		komanda.add(dugme);
+		komanda.add(button);
 		add(komanda,BorderLayout.NORTH);
 		add(plac,BorderLayout.CENTER);
 	}
 	
 	public static void main(String[]args) {
-		new EnergetskiSistem(7,7,1000);
+		new EnergySystem(7,7,1000);
 	}
 
 }

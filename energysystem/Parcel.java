@@ -6,9 +6,9 @@ import java.awt.Label;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public abstract class Parcela extends Label{
+public abstract class Parcel extends Label{
 	
-	public Parcela(String n,Color c) {
+	public Parcel(String n, Color c) {
 		super();
 		this.setText(n);
 		this.setAlignment(CENTER);

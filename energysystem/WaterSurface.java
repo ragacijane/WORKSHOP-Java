@@ -2,9 +2,9 @@ package energysystem;
 
 import java.awt.Color;
 
-public class VodenaPovrs extends Parcela{
+public class WaterSurface extends Parcel {
 
-	public VodenaPovrs() {
+	public WaterSurface() {
 		super("~", Color.CYAN);
 	}
 }
