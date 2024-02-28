@@ -4,38 +4,38 @@ import java.awt.Color;
 
 public class HydroPlant extends Producer {
 	private Thread thread;
-	private int brojVodenihPovrsi;
+	private int numOfWaterSurface;
 	
 	public HydroPlant(Batery b) {
 		super("H", Color.BLUE, 1500, b);
-		brojVodenihPovrsi=0;
+		numOfWaterSurface =0;
 	}
 	
 	@Override
-	public void dodajVodenuPovrs() {
-		brojVodenihPovrsi++;
+	public void addWaterSurface() {
+		numOfWaterSurface++;
 	}
 	public void postaviVodenuPovrs(int x) {
-		brojVodenihPovrsi=x;
+		numOfWaterSurface =x;
 	}
 	@Override
-	protected Boolean proizvedi() {
-		if( brojVodenihPovrsi == 0)return false;
+	protected Boolean produce() {
+		if( numOfWaterSurface == 0)return false;
 		else {
-			batery.dodajEnerg(brojVodenihPovrsi);
+			batery.addEnergy(numOfWaterSurface);
 			return true;
 		}
 	}
 
 	@Override
-	public void pokreni() {
+	public void startUp() {
 		work=true;
 		thread=new Thread(this);
 		thread.start();
 	}
 
 	@Override
-	public void zaustavi() {
+	public void stop() {
 		work=false;
 		if(thread !=null)thread.interrupt();
 	}

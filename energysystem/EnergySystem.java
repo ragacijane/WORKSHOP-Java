@@ -15,7 +15,7 @@ public class EnergySystem extends Frame  {
 	private Button button =new Button("ADD");
 	
 	public EnergySystem(int r, int c, int m) {
-		super("Energetski sistem");
+		super("Energy System");
 		
 		plac=new Plac(r,c);
 		
@@ -32,23 +32,23 @@ public class EnergySystem extends Frame  {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				plac.zaustaviProizvodjace();
+				plac.stopProducers();
 				dispose();
 			}
 		});
 	}
 
 	private void populateWindow() {
-		Panel komanda=new Panel();
+		Panel command=new Panel();
 		
 		button.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				plac.dodajPotrosaca(new HydroPlant(batery));
+				plac.addProducer(new HydroPlant(batery));
 			}
 		});
 		
-		komanda.add(button);
-		add(komanda,BorderLayout.NORTH);
+		command.add(button);
+		add(command,BorderLayout.NORTH);
 		add(plac,BorderLayout.CENTER);
 	}
 	

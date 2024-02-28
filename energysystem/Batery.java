@@ -1,22 +1,22 @@
 package energysystem;
 
 public class Batery {
-	private int trenEnerg, maxEnerg;
+	private int tempEnergy, maxEnergy;
 	
 	public Batery(int max) {
-		maxEnerg=max;
-		trenEnerg=max;
+		maxEnergy =max;
+		tempEnergy =max;
 	}
 	
-	public synchronized void dodajEnerg(int x) {
-		trenEnerg=(trenEnerg+x >= maxEnerg) ? maxEnerg : trenEnerg + x;
+	public synchronized void addEnergy(int x) {
+		tempEnergy =(tempEnergy +x >= maxEnergy) ? maxEnergy : tempEnergy + x;
 	}
 	
 	public Boolean isFull() {
-		return (trenEnerg == maxEnerg) ? true : false;
+		return (tempEnergy == maxEnergy) ? true : false;
 	}
 	
-	public void isprazni() {
-		trenEnerg=0;
+	public void doEmpty() {
+		tempEnergy =0;
 	}
 }
