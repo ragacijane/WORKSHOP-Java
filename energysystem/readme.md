@@ -5,6 +5,6 @@
 - Water Surface is Parcel colored CYAN marked with W
 - Grass Surface is Parcel colored GREEN marked with G
 - Batery has capacity and it is full with creating. You can add energy to battery or empty it, also capacity can be checked.
-- Producer is active Parcel. It is created with battery, and by the time it produce energy and add it to battery. When energy is produced it's letter mark is colored RED.
+- Producer is active Parcel (implements Runnable). It is created with battery, and by the time it produce energy and add it to battery. When energy is produced it's letter mark is colored RED.
 - HydroPlant is producer colored BLUE and marked with H. HydroPlant can produce energy only if it is surrounded by at least one Water Surface.
 - Property is grid of Parcels created with 70% Grass Surface and 30% Water Surface. Selected Parcel's mark is zoomed by 10%
