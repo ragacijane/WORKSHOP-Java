@@ -6,14 +6,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-public class Plac extends Panel{
+public class Propery extends Panel{
 	public ArrayList<Parcel> parcels = new ArrayList<>();
 	public ArrayList<Producer> producers = new ArrayList<>();
 	private Parcel old=null;
 	private Boolean selected=false;
 	private int row,col;
 	
-	public Plac(int r,int c) {
+	public Propery(int r, int c) {
 		this.setLayout(new GridLayout(row=r,col=c,4,4));
 		for(int i=0; i<c*r; i++) {
 			if( (int)(Math.random()*10) > 2.5) parcels.add(new GrassSurface());

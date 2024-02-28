@@ -10,14 +10,14 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class EnergySystem extends Frame  {
-	private Plac plac;
+	private Propery plac;
 	private Batery batery;
 	private Button button =new Button("ADD");
 	
 	public EnergySystem(int r, int c, int m) {
 		super("Energy System");
 		
-		plac=new Plac(r,c);
+		plac=new Propery(r,c);
 		
 		batery =new Batery(m);
 		
