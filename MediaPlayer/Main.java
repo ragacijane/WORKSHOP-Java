@@ -56,6 +56,8 @@ public class Main extends Application {
         player.setTop(menu);
 
         Scene  scene = new Scene(player, 720,480, Color.BLACK);
+
+
         primaryStage.setScene(scene);
         primaryStage.show();
     }
