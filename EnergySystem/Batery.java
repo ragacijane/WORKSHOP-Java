@@ -1,4 +1,4 @@
-package energysystem;
+package EnergySystem;
 
 public class Batery {
 	private int tempEnergy, maxEnergy;

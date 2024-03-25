@@ -1,4 +1,4 @@
-package spacesimulator;
+package SpaceSimulator;
 
 public class Generator extends Thread {
 	private Boolean work=false;

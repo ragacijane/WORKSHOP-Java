@@ -1,4 +1,4 @@
-package energysystem;
+package EnergySystem;
 
 import java.awt.BorderLayout;
 import java.awt.Button;
