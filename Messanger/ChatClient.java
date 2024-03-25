@@ -2,8 +2,7 @@ package Messanger;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -25,6 +24,20 @@ public class ChatClient extends JFrame implements Runnable {
     ChatClient(String login) throws IOException {
         super(login);
         LoginName = login;
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                //super.windowClosing(e);
+                try {
+                    dout.writeUTF(LoginName+" "+"LOGOUT");
+                    System.exit(-1);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+
         textArea = new JTextArea(18,50);
         textField = new JTextField(50);
 
@@ -52,6 +65,32 @@ public class ChatClient extends JFrame implements Runnable {
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
+            }
+        });
+
+        textField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                    try {
+                        if(textField.getText().length() > 0) {
+                            dout.writeUTF(LoginName + " " + "DATA " + textField.getText().toString());
+                        }
+                        textField.setText("");
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
             }
         });
 
@@ -95,7 +134,5 @@ public class ChatClient extends JFrame implements Runnable {
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        ChatClient client = new ChatClient("User1");
-    }
+
 }
