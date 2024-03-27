@@ -1,4 +1,9 @@
 # TextEditor
+- Open and saves files using a GUI
+- CardLayout is used to switch between the menus.
+- Passwords are encryoted and stored.
+- While login password is encrypted and checked against the stored one.
+
 Registration:
 
 https://github.com/ragacijane/WORKSHOP-Java/assets/74156547/431c234a-4d0d-4db1-b397-b83bdba90b51
