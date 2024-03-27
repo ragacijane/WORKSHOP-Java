@@ -14,6 +14,7 @@ public class FileBrowser extends JPanel implements ActionListener {
     File directory;
     JTextField newFileTf = new JTextField(10);
     public FileBrowser(String dir){
+        //   Creating firectory for certain user
         directory = new File(dir);
         directory.mkdir();
         JPanel fileList = new JPanel(new GridLayout(directory.listFiles().length +3, 1));
@@ -25,6 +26,7 @@ public class FileBrowser extends JPanel implements ActionListener {
             buttonGroup.add(radio);
             fileList.add(radio);
         }
+        //  Creating panel
         JPanel newPanel = new JPanel();
         newPanel.add(newFileTf);
         newPanel.add(newFile);
@@ -37,8 +39,11 @@ public class FileBrowser extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Login login = (Login) getParent();
+        //  Creating string URL path to file and loading editors Card
         if(e.getSource() == open){
-            login.add(new Editor(directory.getName()+"\\"+buttonGroup.getSelection().getActionCommand()),"editor");
+            // path
+            String file = directory.getName()+"\\"+buttonGroup.getSelection().getActionCommand();
+            login.add(new Editor(file),"editor");
             login.cardLayout.show(login,"editor");
         }
         if(e.getSource() == newFile){

@@ -20,6 +20,7 @@ public class Register extends JPanel implements ActionListener {
     JButton backBtn = new JButton("Back");
 
     public Register(){
+        //  Creating panel
         JPanel registerPanel = new JPanel();
         registerPanel.setLayout(new GridLayout(4,2));
         registerPanel.add(userL);
@@ -46,8 +47,9 @@ public class Register extends JPanel implements ActionListener {
                 userField.getText().length() > 0){
             String pass = new String(passwordField.getPassword());
             String confirm = new String(confirmPasswordField.getPassword());
-            if( pass.equals(confirm)){
+            if(pass.equals(confirm)){
                 try {
+                    //  Checking if user exists
                     BufferedReader input = new BufferedReader(new FileReader("TextEditor/passwords.txt"));
                     String line = input.readLine();
                     while(line != null){
@@ -59,17 +61,20 @@ public class Register extends JPanel implements ActionListener {
                         line = input.readLine();
                     }
                     input.close();
+                    //  This part of code encodes password
                     MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
                     messageDigest.update(pass.getBytes());
                     byte byteData[] = messageDigest.digest();
-                    StringBuffer stringBuffer = new StringBuffer();
+                    StringBuffer stringBuffer = new StringBuffer(); //  String buffer for easier merging bits
                     for(int i=0; i<byteData.length;i++)
                         stringBuffer.append(Integer.toString((byteData[i] & 0xFF)+0x100,16).substring(1));
                     BufferedWriter output = new BufferedWriter(new FileWriter("TextEditor/passwords.txt",true));
                     output.write(userField.getText()+" "+stringBuffer.toString()+"\n");
                     output.close();
+                    //  Changing card to shop up after succesful register
                     Login login = (Login) getParent();
                     login.cardLayout.show(login,"login");
+
                 } catch (FileNotFoundException ex) {
                     throw new RuntimeException(ex);
                 } catch (IOException ex) {

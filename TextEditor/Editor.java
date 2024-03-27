@@ -16,6 +16,7 @@ public class Editor extends JPanel implements ActionListener {
         file = new File(s);
         save.addActionListener(this);
         saveClose.addActionListener(this);
+        //  IF file exists load text into textArea
         if(file.exists()){
             try {
                 BufferedReader input = new BufferedReader(new FileReader(file));

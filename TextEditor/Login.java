@@ -42,6 +42,7 @@ public class Login extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginBtn) {
             try {
+                //Geting password for a certain user and store it in pass
                 BufferedReader input = new BufferedReader(new FileReader("TextEditor/passwords.txt"));
                 String pass = null;
                 String line = input.readLine();
@@ -53,7 +54,8 @@ public class Login extends JPanel implements ActionListener {
                     line = input.readLine();
                 }
                 input.close();
-
+                //To check password it is easier to code it on same method than decode already coded value
+                //And after that compare it with one in file
                 MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
                 messageDigest.update(new String(passwordField.getPassword()).getBytes());
                 byte byteData[] = messageDigest.digest();
