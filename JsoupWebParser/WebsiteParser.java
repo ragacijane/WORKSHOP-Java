@@ -20,6 +20,8 @@ public class WebsiteParser extends JTabbedPane{
         }
         getLinks();
         addTab("Links", scrollPane);
+        addTab("Images", new ImageGrabber(doc));
+        addTab("WordCount",new WordCount(doc));
     }
     public void getLinks(){
         Elements links = doc.getElementsByTag("a");
@@ -32,7 +34,7 @@ public class WebsiteParser extends JTabbedPane{
                     l= doc.baseUri()+l.substring(1);
                 else if(!l.substring(0,4).equals("http"))
                     l= doc.baseUri()+l.substring(1);
-                JLabel label = new JLabel(l);
+                SwingLink label = new SwingLink(link.text(),l);
                 linkpanel.add(label);
             }
         }
