@@ -1,2 +1,3 @@
 # Attachments
-- Here you can find all libraries and videos for projects in this repository.
+- Libraries that have been used in projects.
+- Short clips that show the project.
