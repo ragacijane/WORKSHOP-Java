@@ -1,5 +1,5 @@
 # Energy System
-> Project was made while studying java threads and java.awt library, more details you can find in pdf file
+> The project was created while studying Java threads and the java.awt library. More details can be found in the PDF file.
 - Energy System is Java application that runs Energy System with folowing classes.
 - Parcel is Label (from java.awt). Parcel is made with one letter mark colored white and it can be selected.
 - Water Surface is Parcel colored CYAN marked with W
