@@ -1,5 +1,6 @@
 # Wellcome
-
+- javaFundamentalsNotes.java
+  	* Set of notes covering fundamentals concepts in Java that i collected on college. 
 - AkkaDistributionSystem 
  	* Used to create a workload distribution system using Actors.
  - Attachments
