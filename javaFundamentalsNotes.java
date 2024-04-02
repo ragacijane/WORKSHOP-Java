@@ -110,8 +110,9 @@ public class javaFundamentalsNotes {
          * static method - can directly access only to static methods and static fields, to others need reference
          * static block - initialize static fields and other statements. While executing can throw only exceptions
          that can me caught.
-         *
          */
+
+    // packages
 }
 
 
