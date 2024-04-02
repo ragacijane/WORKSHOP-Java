@@ -1,4 +1,4 @@
-# Wellcome
+# Content of the Java WORKSHOP
 - javaFundamentalsNotes.java
   	* Set of notes covering fundamentals concepts in Java that i collected on college. 
 - AkkaDistributionSystem 
