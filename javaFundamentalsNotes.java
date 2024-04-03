@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
 public class javaFundamentalsNotes {
     {
         /*
@@ -56,7 +54,9 @@ public class javaFundamentalsNotes {
 
          */
     }
-    public class FromObject extends Object {
+    public class FromObject extends Object implements Cloneable {
+
+        // Redefining is OVERRIDING
         public String toString() {
             return "";
         }
@@ -86,12 +86,27 @@ public class javaFundamentalsNotes {
          */
 
         public FromObject clone() {
+            try {
+                FromObject fromObject = (FromObject) super.clone();
+            } catch (CloneNotSupportedException e) {
+                throw new RuntimeException(e);
+            }
             return new FromObject();
         }
         /*This method creates and returns a copy of the object.
         It's used to create a shallow copy of an object.
         However, to use this method effectively, the class must implement the Cloneable interface and override the clone() method.
-         */
+        Class that allows cloning should override clone() and implement empty interface Cloneable
+
+            - Class and subclasses unconditionally support cloning:
+                • Class implements Cloneable and declares its public clone() method that does not throw exceptions.
+            - Class conditionally supports cloning:
+                • It implements Cloneable and allows its public clone() method to pass an exception obtained from other objects it attempted to clone.
+            - Class does not support cloning but allows the subclass to support cloning:
+                • Class does not implement Cloneable, but provides a protected clone() method that clones its fields correctly (if Object.clone() does not suffice).
+            - Class prevents cloning of its objects and subclass objects:
+                • Class does not implement Cloneable and provides a public final clone() method that unconditionally throws an exception.
+        */
 
         public void finalize() {}
         /*This method is called by the garbage collector before reclaiming the memory occupied by the object.
@@ -107,12 +122,26 @@ public class javaFundamentalsNotes {
         double n = javaFundamentalsNotes.pi;
         /*
          * static fields - has only one occurrence per class
-         * static method - can directly access only to static methods and static fields, to others need reference
+         * static method - can directly access only to static methods and static fields, for others need reference
          * static block - initialize static fields and other statements. While executing can throw only exceptions
          that can me caught.
          */
 
-    // packages
+        public FromObject newObject = new FromObject(); // creating new instance
+
+        // Name OVERLOADING
+        public int max(int i,int j){return 1;}
+        public int max(int i,int j,int x){return 1;}
+
+    {   // EXTENDING
+
+        // class can only extend 1 clas, but multiple interfaces
+        class extendedObject extends FromObject{
+            extendedObject(){
+                super();// calling constructor from parent class, need to be in first line of constructor
+            }
+        }
+    }
 }
 
 
